@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Blood Donor Chain</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <center>
+    <form action="setDonor" method="POST" >
+      <input type="text" name ="donorno" placeholder="Enter Donor number "/><br><br>
+      <input type="text" name ="dName" placeholder="Enter Name "/><br><br>
+      <input type="text" name ="age" placeholder="Enter Age "/><br><br>
+      <input type="radio" name="gender" value="0"/>Male
+      <input type="radio" name="gender" value="1"/>Female
+      <input type="radio" name="gender" value="2"/>Other
+      <br><br>
+      Blood Group: <select name="bloodGroup" >
+        <option >A+</option>
+        <option >AB+</option>
+        <option >B+</option>
+        <option >O+</option>
+        <option >A-</option>
+        <option >AB-</option>
+        <option >B-</option>
+        <option >O-</option>
+      </select>
+      <br><br>
+      <button type="submit" value="submit">Submit</button>     
+    </form>
+    </center>
   </body>
 </html>
