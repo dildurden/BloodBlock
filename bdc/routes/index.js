@@ -13,4 +13,9 @@ router.post('/setDonor',function(req,res,next){
     res.send(txn);
   // });
 })
+router.post('/getSample',(req,res,next)=>{
+  let data =req.body;
+  //using instance of the contract to fetch donor details
+  //instance.methods.getSample(data.search)
+})
 module.exports = router;

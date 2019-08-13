@@ -7,10 +7,11 @@
   </head>
   <body>
     <center>
+    <!-- Sample Registration Form -->
     <form action="setDonor" method="POST" >
-      <input type="text" name ="donorno" placeholder="Enter Donor number "/><br><br>
-      <input type="text" name ="dName" placeholder="Enter Name "/><br><br>
-      <input type="text" name ="age" placeholder="Enter Age "/><br><br>
+      <input type="text" name ="donorno" placeholder="Donor ID No: "/><br><br>
+      <input type="text" name ="donorName" placeholder="Name "/><br><br>
+      <input type="text" name ="age" placeholder="Age "/><br><br>
       <input type="radio" name="gender" value="0"/>Male
       <input type="radio" name="gender" value="1"/>Female
       <input type="radio" name="gender" value="2"/>Other
@@ -26,8 +27,20 @@
         <option >O-</option>
       </select>
       <br><br>
+      <label for="medConditions">Medical Conditions</label>
+      <input type="checkbox" name="medConditions" />Conditon1 <br>
+      <input type="checkbox" name="medConditions" />Conditon2 <br>
+      <input type="checkbox" name="medConditions" />Conditon3 <br>
+      <input type="checkbox" name="medConditions" />Conditon4 <br>
+      <input type="checkbox" name="medConditions" />Conditon5 <br>
       <button type="submit" value="submit">Submit</button>     
     </form>
     </center>
+    <!-- To searchand fetch samples via donor id -->
+    <form action="getSample" method="POST">
+    <label for="search">Search</label>
+    <input type="text" name ="search" />
+    <button type="submit" value="submit">Search</button>
+    </form>
   </body>
 </html>
