@@ -6,3 +6,13 @@
 11:16:59.862926 db@open done T·58.983284ms
 14:30:14.461943 db@close closing
 14:30:14.462200 db@close done T·248.508µs
+=============== Aug 16, 2019 (IST) ===============
+11:21:16.441099 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+11:21:16.441262 version@stat F·[] S·0B[] Sc·[]
+11:21:16.441285 db@open opening
+11:21:16.441659 journal@recovery F·1
+11:21:16.443754 journal@recovery recovering @1
+11:21:16.489116 memdb@flush created L0@2 N·33 S·1KiB "\x03\x95\x06..\v_I,v12":"\xd9(\x16..J\xc6\x18,v20"
+11:21:16.503968 version@stat F·[1] S·1KiB[1KiB] Sc·[0.25]
+11:21:16.608099 db@janitor F·3 G·0
+11:21:16.608164 db@open done T·166.862412ms
