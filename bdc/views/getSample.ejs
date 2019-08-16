@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Blood Sample</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td><%=result._name%></td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td><%=result._age %></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>
+            <% if (result._myGender == 0){%>
+                Male            
+            <% }else if (result._myGender == 1){%>
+                Female
+            <% }else {%>
+                Other
+            <% }%>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>Place</td>
+            <td><%=result._place %></td>
+        </tr>
+        <tr>
+            <td>Blood Group</td>
+            <td>
+                <% switch(result._donGen) {%>
+                <% case '0':%> A+ve
+                <% break; %>
+                <% case '1':%> A-ve
+                <% case '2':%> B+ve
+                <% case '3':%> B-ve
+                <% case '4':%> O+ve
+                <% case '5':%> O-ve
+                <% case '6':%> AB+ve
+                <% case '7':%> AB-ve
+                <% } %>
+            </td>
+        </tr>
+        <tr>
+            <td>Medical Conditions</td>
+            <td>
+                <%if (result._medCond) == 'true'){%>
+                    Yes
+                <% }else{ %>
+                    No
+                <%}%>
+            </td>
+        </tr>
+    </table>
+    
+</body>
+</html>

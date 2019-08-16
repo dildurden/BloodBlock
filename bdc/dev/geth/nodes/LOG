@@ -1,0 +1,76 @@
+=============== Aug 16, 2019 (IST) ===============
+12:31:19.548304 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+12:31:19.602560 db@open opening
+12:31:19.604463 version@stat F·[] S·0B[] Sc·[]
+12:31:19.644721 db@janitor F·2 G·0
+12:31:19.644815 db@open done T·42.227798ms
+13:37:34.119834 db@close closing
+13:37:34.120009 db@close done T·169.493µs
+=============== Aug 16, 2019 (IST) ===============
+13:38:33.468685 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:38:33.468841 version@stat F·[] S·0B[] Sc·[]
+13:38:33.468865 db@open opening
+13:38:33.468920 journal@recovery F·1
+13:38:33.471038 journal@recovery recovering @1
+13:38:33.511966 memdb@flush created L0@2 N·2 S·176B "loc..seq,v2":"version,v1"
+13:38:33.513810 version@stat F·[1] S·176B[176B] Sc·[0.25]
+13:38:33.613309 db@janitor F·3 G·0
+13:38:33.613381 db@open done T·144.502488ms
+13:42:13.056957 db@close closing
+13:42:13.057133 db@close done T·173.199µs
+=============== Aug 16, 2019 (IST) ===============
+13:42:20.687521 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:42:20.687655 version@stat F·[1] S·176B[176B] Sc·[0.25]
+13:42:20.687678 db@open opening
+13:42:20.687733 journal@recovery F·1
+13:42:20.689200 journal@recovery recovering @3
+13:42:20.728928 memdb@flush created L0@5 N·1 S·159B "loc..seq,v4":"loc..seq,v4"
+13:42:20.730784 version@stat F·[2] S·335B[335B] Sc·[0.50]
+13:42:20.830359 db@janitor F·4 G·0
+13:42:20.830447 db@open done T·142.7524ms
+13:43:23.200374 db@close closing
+13:43:23.200613 db@close done T·235.931µs
+=============== Aug 16, 2019 (IST) ===============
+13:45:04.399570 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:45:04.399734 version@stat F·[2] S·335B[335B] Sc·[0.50]
+13:45:04.399770 db@open opening
+13:45:04.399837 journal@recovery F·1
+13:45:04.401352 journal@recovery recovering @6
+13:45:04.448235 memdb@flush created L0@8 N·1 S·159B "loc..seq,v6":"loc..seq,v6"
+13:45:04.455243 version@stat F·[3] S·494B[494B] Sc·[0.75]
+13:45:04.567324 db@janitor F·5 G·0
+13:45:04.567399 db@open done T·167.614305ms
+13:48:53.956036 db@close closing
+13:48:53.956287 db@close done T·242.839µs
+=============== Aug 16, 2019 (IST) ===============
+13:51:07.827958 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:51:07.828079 version@stat F·[3] S·494B[494B] Sc·[0.75]
+13:51:07.828098 db@open opening
+13:51:07.828144 journal@recovery F·1
+13:51:07.829662 journal@recovery recovering @9
+13:51:07.892225 memdb@flush created L0@11 N·1 S·159B "loc..seq,v8":"loc..seq,v8"
+13:51:07.896004 version@stat F·[4] S·653B[653B] Sc·[1.00]
+13:51:07.993853 db@janitor F·6 G·0
+13:51:07.993955 db@open done T·165.844064ms
+13:51:07.994169 table@compaction L0·4 -> L1·0 S·653B Q·9
+13:51:08.035203 table@build created L1@14 N·2 S·176B "loc..seq,v8":"version,v1"
+13:51:08.035371 version@stat F·[0 1] S·176B[0B 176B] Sc·[0.00 0.00]
+13:51:08.077264 table@compaction committed F-3 S-477B Ke·0 D·3 T·82.993885ms
+13:51:08.077636 table@remove removed @8
+13:51:08.077770 table@remove removed @5
+13:51:08.077866 table@remove removed @2
+13:58:57.651622 db@close closing
+13:58:57.651807 db@close done T·182.333µs
+=============== Aug 16, 2019 (IST) ===============
+13:59:01.987250 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:59:01.987452 version@stat F·[0 1] S·176B[0B 176B] Sc·[0.00 0.00]
+13:59:01.987477 db@open opening
+13:59:01.987533 journal@recovery F·1
+13:59:01.989359 journal@recovery recovering @12
+13:59:02.032743 memdb@flush created L0@15 N·1 S·159B "loc..seq,v10":"loc..seq,v10"
+13:59:02.035005 version@stat F·[1 1] S·335B[159B 176B] Sc·[0.25 0.00]
+13:59:02.134252 db@janitor F·5 G·1
+13:59:02.134321 db@janitor removing table-11
+13:59:02.134523 db@open done T·147.030852ms
+14:22:02.218621 db@close closing
+14:22:02.218801 db@close done T·175.434µs
