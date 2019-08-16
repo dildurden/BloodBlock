@@ -9,15 +9,101 @@ var usersRouter = require('./routes/users');
 
 web3 = new Web3('http://localhost:8545');//Connecting to Blockchain rpc endpoint
 //Initialize the account and contract instances
-/*
-  account ="";//account Address
-  contractaddress="";//Contract Address
+
+  account ="0x87939fc162bc94c50701aa859a9ca3fe38a31a6c";//account Address
+  contractaddress="0xc58467d547323960d94242dd0a8700f0b12b1daa";//Contract Address
   //Initialize the contract Abi
-  contractabi = [{"constant": false,"inputs": [{"name": "","type": ""},{"name": "","type": ""},{"name": "","type": ""},{"name": "","type": ""},{"name": "","type": ""}],"name": "FunctionName","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [{"name": ""","type": ""}],"name": "","outputs": [{"name": "","type": ""},{"name": "","type": ""},{"name": "","type": ""},{"name": "","type": ""}],"payable": false,"stateMutability": "view","type": "function"}];
+  contractabi = [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_id",
+          "type": "uint256"
+        },
+        {
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "name": "_age",
+          "type": "uint256"
+        },
+        {
+          "name": "_place",
+          "type": "string"
+        },
+        {
+          "name": "_mob",
+          "type": "uint256"
+        },
+        {
+          "name": "_bldVol",
+          "type": "uint256"
+        },
+        {
+          "name": "_donorCond",
+          "type": "uint8"
+        },
+        {
+          "name": "_donGen",
+          "type": "uint8"
+        },
+        {
+          "name": "_grp",
+          "type": "uint8"
+        }
+      ],
+      "name": "setDonor",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "getSample",
+      "outputs": [
+        {
+          "name": "_age",
+          "type": "uint256"
+        },
+        {
+          "name": "_place",
+          "type": "string"
+        },
+        {
+          "name": "_bldVol",
+          "type": "uint256"
+        },
+        {
+          "name": "_donorCond",
+          "type": "uint8"
+        },
+        {
+          "name": "_donGen",
+          "type": "uint8"
+        },
+        {
+          "name": "_grp",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ]
   //Contract Instance
   Contractinstance = new web3.eth.Contract(contractabi,contractaddress);//contract instance
 
-*/
+
 
 var app = express();
 
