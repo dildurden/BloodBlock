@@ -14,7 +14,7 @@ contract DonorRegister {
   enum gender { male, female, other}
     enum bGrp { AP, AN, BP, BN,OP, ON,ABP,ABN}
     struct bDonor{
-        address donorID;
+      //   address donorID;
         string name;
         uint age;
         string place;
@@ -22,17 +22,18 @@ contract DonorRegister {
         bool medCond;
         gender donGen;
         bGrp grp;
-        uint counter;
+      //   uint counter;
      }
   mapping(address=>bDonor)sample;
+  mapping(uint=>bDonor)donor;
   modifier criteria {
      require(sample[msg.sender].age > 18,"Not old enough");
-     require(sample[msg.sender].medCond == false,"Not Medically fit");
+   //   require(sample[msg.sender].medCond == false,"Not Medically fit");
      _;
 
   }
-  function setDonor(address _id,string memory _name,uint _age,string memory _place, uint _mob,bool _medCond, gender _donGen, bGrp _grp,uint _counter)public criteria{
-      sample[_id] = bDonor(_id,_name,_age,_place,_mob,_medCond,_donGen,_grp,_counter);
+  function setDonor(uint _donorid,string memory _name,uint _age,string memory _place, uint _mob,bool _medCond, gender _donGen, bGrp _grp)public criteria{
+      donor[_donorid] = bDonor(_name,_age,_place,_mob,_medCond,_donGen,_grp);
   }
   function getSample()public view returns (uint _age,string memory _place,gender _donGen,bGrp _grp){
      address donorID = msg.sender;
@@ -44,6 +45,6 @@ contract DonorRegister {
   }
   constructor() public {
      //Intialising the struct variables like Account address and other variables
-     bDonor({donorID:msg.sender,name:"",age:0,place:"",mob:0,medCond:false,donGen:gender.male,grp:bGrp.AP,counter:0});
+   //   bDonor({donorID:msg.sender,name:"",age:0,place:"",mob:0,medCond:false,donGen:gender.male,grp:bGrp.AP});
    }
 }

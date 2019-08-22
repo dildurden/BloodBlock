@@ -1377,12 +1377,12 @@
     "4002": {
       "events": {},
       "links": {},
-      "address": "0xac00b8E18Af31Ae2B347830631BCe0ec981688D6",
-      "transactionHash": "0xad04047a681e42d179f87e89cb35df33b6d751bb78888e9159380fea5dea8d5f"
+      "address": "0x525A0390531C1d71f0704d098405A3f03898F2F6",
+      "transactionHash": "0xa8a2e91d22e46926659c6c7d443edf0b998f2843b7959dcc39aea1a56c2130d4"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-08-22T08:21:47.007Z",
+  "updatedAt": "2019-08-22T11:44:29.827Z",
   "devdoc": {
     "methods": {}
   },
