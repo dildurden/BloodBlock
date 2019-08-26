@@ -26,15 +26,17 @@ router.post('/setDonor',function(req,res,next){
         medCounter++;
   }
   if(medCounter >= 3){
-     mCondition = "true"; //med conition set to true so that donor is rejected
+     mCondition = true; //med conition set to true so that donor is rejected
   }
   else
-    mCondition = "false"; //med condition set to false 
+    mCondition = false; //med condition set to false 
   //  sender = web3.eth.accounts.create();
   console.log("ender Address ",account)
+  console.log("Counter:",medCounter)
+  console.log("Conditions:",mCondition);
   Contractinstance.methods.setDonor(data.donorno,data.donorName,data.age,data.location,data.mobno,mCondition,data.gender,data.bloodGroup).send({from:account,gas:600000}).then((txn)=>{
     res.send(txn);
-   });
+   })
   //  MODIFICATION NEEDED !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!git
   /*
    Contractinstance.methods.setDonor(data.donorno,data.donorName,data.age,data.location,data.mobno,data.mCondition1,data.gender,data.bloodGroup).send({from:account,gas:600000}).then((txn)=>{
@@ -45,7 +47,7 @@ router.post('/setDonor',function(req,res,next){
 
 router.get('/getSample',(req,res,next)=>{
   let data =req.query;
-  Contractinstance.methods.getSample().call({from:account}).then((txn)=>{
+  Contractinstance.methods.getSample(data.search).call({from:account}).then((txn)=>{
     res.render("getSample",{result:txn})
   })
 })

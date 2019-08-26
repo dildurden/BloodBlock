@@ -24,23 +24,24 @@ contract DonorRegister {
         bGrp grp;
       //   uint counter;
      }
-  mapping(address=>bDonor)sample;
-  mapping(uint=>bDonor)donor;
-  modifier criteria {
-     require(sample[msg.sender].age > 18,"Not old enough");
-   //   require(sample[msg.sender].medCond == false,"Not Medically fit");
-     _;
+  mapping(address=>bDonor)donor;
+//   mapping(uint=>bDonor)donor;
+//   modifier criteria {
+//      require(sample[msg.sender].age > 18,"Not old enough");
+//    //   require(sample[msg.sender].medCond == false,"Not Medically fit");
+//      _;
 
-  }
-  function setDonor(uint _donorid,string memory _name,uint _age,string memory _place, uint _mob,bool _medCond, gender _donGen, bGrp _grp)public criteria{
+//   }
+  function setDonor(address _donorid,string memory _name,uint _age,string memory _place, uint _mob,bool _medCond, gender _donGen, bGrp _grp)public{
       donor[_donorid] = bDonor(_name,_age,_place,_mob,_medCond,_donGen,_grp);
   }
-  function getSample()public view returns (uint _age,string memory _place,gender _donGen,bGrp _grp){
-     address donorID = msg.sender;
-     _age = sample[donorID].age;
-     _place = sample[donorID].place;
-     _donGen = sample[donorID].donGen;
-     _grp = sample[donorID].grp;
+  function getSample(address donorID)public view returns (uint _age,string memory _place,gender _donGen,bGrp _grp,bool _medCond){
+     //address donorID = msg.sender;
+     _age = donor[donorID].age;
+     _place = donor[donorID].place;
+     _donGen = donor[donorID].donGen;
+     _grp = donor[donorID].grp;
+     _medCond = donor[donorID].medCond;
 
   }
   constructor() public {
