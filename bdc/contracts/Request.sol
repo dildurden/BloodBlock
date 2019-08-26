@@ -3,15 +3,15 @@ pragma solidity ^0.5.0;
 import "../contracts/DonorRegister.sol";
 contract Request is DonorRegister{
   struct bRequest{
-    uint amount;
+    uint donorNos;
     string place;
-    address donors;
+    bGrp reqGrp;
     bool status;
-
   }
-  mapping(uint =>bRequest)request;
-  function requestBlood(uint _id,uint _amount,string memory _place,address _donors,bool _status)public{
-   request[_id] = bRequest(_amount,_place,_donors,_status);
+  address donors;
+  mapping(address =>bRequest)request;
+  function requestBlood(address _id,uint _donorNos,string memory _place,bGrp _reqGrp,bool _status)public{
+   request[_id] = bRequest(_donorNos,_place,_reqGrp,_status);
   }
   
   

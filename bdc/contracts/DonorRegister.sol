@@ -46,6 +46,6 @@ contract DonorRegister {
   }
   constructor() public {
      //Intialising the struct variables like Account address and other variables
-   //   bDonor({donorID:msg.sender,name:"",age:0,place:"",mob:0,medCond:false,donGen:gender.male,grp:bGrp.AP});
+   //   bDonor({name:"",age:0,place:"",mob:0,medCond:false,donGen:gender.male,grp:bGrp.AP});
    }
 }
