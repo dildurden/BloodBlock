@@ -26,9 +26,10 @@ contract Request is DonorRegister{
         bGrp reqGrp;
         //bool status;
     }
-
+    address donors;
+    enum status {Donated,Available}
     mapping(address=>acpReq)acceptor;
-
+    status donorStatus;
     function setReq(address _requestee,uint _donorNos,string memory _location,bGrp _reqGrp)public{
        acceptor[_requestee] = acpReq(_donorNos,_location,_reqGrp);
    }
@@ -37,5 +38,14 @@ contract Request is DonorRegister{
        _donorNos = acceptor[requestEE].donorNos;
        _location = acceptor[requestEE].location;
        _reqGrp = acceptor[requestEE].reqGrp;
+   }
+   event counter(status);
+   //Accepting request function to accept
+   function acceptReq(address accept)public{
+       donors = accept;
+        getSample(donors);
+        donorStatus = status.Donated;
+        emit counter(donorStatus);
+
    }
 }

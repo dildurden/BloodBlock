@@ -51,4 +51,11 @@ router.post("/setRequest",(req,res)=>{
     res.send(txn);
   })
 })
+///Route for Accepting Request
+router.post("/acceptRequest",(req,res)=>{
+  let data = req.body;
+  Contractinstance.methods.acceptReq(data.donoraddr).send({from:account,gas:600000}).then((txn)=>{
+    res.send(txn);
+  })
+})
 module.exports = router;
