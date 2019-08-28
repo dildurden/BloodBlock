@@ -190,3 +190,23 @@
 13:31:33.931720 version@stat F·[0 1] S·159KiB[0B 159KiB] Sc·[0.00 0.00]
 13:31:34.037633 table@compaction committed F-1 S-3KiB Ke·0 D·78 T·168.246672ms
 13:31:34.042238 table@remove removed @39
+17:44:43.471110 db@close closing
+17:44:43.471170 db@close done T·59.137µs
+=============== Aug 28, 2019 (IST) ===============
+14:43:24.454287 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+14:43:24.527092 version@stat F·[0 1] S·159KiB[0B 159KiB] Sc·[0.00 0.00]
+14:43:24.527427 db@open opening
+14:43:24.527715 journal@recovery F·1
+14:43:24.532611 journal@recovery recovering @41
+14:43:24.638349 memdb@flush created L0@44 N·354 S·33KiB "\x06\xd0V..\xaf\xef\xdb,v2115":"\xf7\xdd\xe1..\xc3&\xda,v2150"
+14:43:24.661068 version@stat F·[1 1] S·193KiB[33KiB 159KiB] Sc·[0.25 0.00]
+14:43:24.773973 db@janitor F·5 G·1
+14:43:24.773994 db@janitor removing table-40
+14:43:24.774044 db@open done T·246.562787ms
+14:43:25.035266 table@compaction L0·1 -> L1·1 S·193KiB Q·2155
+14:43:25.074921 table@build created L1@47 N·1492 S·191KiB "\x01\x8fg..>\xf2\x04,v609":"\xff\x98\xc8..Lbu,v1786"
+14:43:25.074980 version@stat F·[0 1] S·191KiB[0B 191KiB] Sc·[0.00 0.00]
+14:43:25.225554 table@compaction committed F-1 S-1KiB Ke·0 D·103 T·190.215484ms
+14:43:25.225958 table@remove removed @43
+15:19:23.137945 db@close closing
+15:19:23.138037 db@close done T·90.964µs

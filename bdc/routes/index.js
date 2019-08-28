@@ -45,5 +45,10 @@ router.get('/getSample',(req,res,next)=>{
     res.render("getSample",{result:txn})
   })
 })
-
+router.post("/setRequest",(req,res)=>{
+  let data = req.body;
+  Contractinstance.methods.setReq(data.bankAddr,data.amount,data.reqlocation,data.reqbloodGroup).send({from:account,gas:600000}).then((txn)=>{
+    res.send(txn);
+  })
+})
 module.exports = router;

@@ -8,8 +8,10 @@ const ejsLint = require('ejs-lint');
 ejsLint.lint();
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
-var DonorRegisterJSON = require(path.join(__dirname,"build/contracts/DonorRegister.json"));//Donor Contract Variable
+/** 
+ * Deployed Contract request and usng comtract instance of request to call methods of the register contract
+*/
+var DonorRegisterJSON = require(path.join(__dirname,"build/contracts/Request.json"));//Donor Contract Variable
 web3 = new Web3('http://localhost:8545');//Connecting to Blockchain rpc endpoint
 //Initialize the account and contract instances
   account = "0x322f88cda00c362d1d8c2c30d825690699092816";//account Address

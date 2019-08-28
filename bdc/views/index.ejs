@@ -49,5 +49,21 @@
     <button type="submit" value="submit" >Search</button>
     </form>
     
+    <form action="setRequest" method="POST">
+      <input type="text" name = "bankAddr" placeholder="Blood Bank ID"/>
+      <input type="text" name="amount" placeholder="No:of donors required"/>
+      <input type="text" name ="reqlocation" placeholder="Location"/>
+      Blood Group:<select name="reqbloodGroup" >
+        <option value="0">A+ve</option>
+        <option value="1">A-ve</option>
+        <option value="2">B+ve</option>
+        <option value="3">B-ve</option>
+        <option value="4">O+ve</option>
+        <option value="5">O-ve</option>
+        <option value="6">AB+ve</option>
+        <option value="7">AB-ve</option>
+      </select>
+      <button type="submit" value="submit">Submit</button>
+    </form>
   </body>
 </html>
