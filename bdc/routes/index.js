@@ -54,8 +54,9 @@ router.post("/setRequest",(req,res)=>{
 ///Route for Accepting Request
 router.post("/acceptRequest",(req,res)=>{
   let data = req.body;
-  Contractinstance.methods.acceptReq(data.donoraddr).send({from:account,gas:600000}).then((txn)=>{
+  Contractinstance.methods.acceptReq(data.donoraddr,data.reqaddr).send({from:account,gas:6000000}).then((txn)=>{
     res.send(txn);
   })
+  // Contractinstance.methods.transfer(data.donoraddr,5).send({from:account,gas:6000000}).then(())
 })
 module.exports = router;

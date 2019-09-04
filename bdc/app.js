@@ -14,7 +14,7 @@ var usersRouter = require('./routes/users');
 var DonorRegisterJSON = require(path.join(__dirname,"build/contracts/Request.json"));//Donor Contract Variable
 web3 = new Web3('http://localhost:8545');//Connecting to Blockchain rpc endpoint
 //Initialize the account and contract instances
-  account = "0x322f88cda00c362d1d8c2c30d825690699092816";//account Address
+  account = "0x66fa448218c30497b3b72a3e189b843868f8d1cb";//account Address
   contractaddress = DonorRegisterJSON.networks['4002'].address;//Contract Address
   //Initialize the contract Abi
   contractabi = DonorRegisterJSON.abi;

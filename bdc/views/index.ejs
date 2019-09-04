@@ -16,7 +16,7 @@
                             <form action="setDonor" method="POST" >
                             <input class="form-control" type="text" name ="donorno" placeholder="Donor ID No: "/><br><br>
                             <input class="form-control" type="text" name ="donorName" placeholder="Name "/><br><br>
-                            <input class="form-control" type="text" name ="age" placeholder="Age "/><br><br>
+                            <input class="form-control" type="text" name ="age" placeholder="Age " id="age"/><br><br>
                             <div class="form-inline">
                             <input class="form-control" type="radio" name="gender" value="0"/>Male
                             <input class="form-control" type="radio" name="gender" value="1"/>Female
@@ -85,6 +85,7 @@
                                             <h5>Accept Request</h5>
                                             <form action="acceptRequest" method="POST">
                                               <input class="form-control" type="text" name="donoraddr" placeholder="Donor Address"><br>
+                                              <input class="form-control" type="text" name="reqaddr" placeholder="Request Address"><br>
                                               <button class="btn btn-primary" type="submit" value="submit">Submit</button>
                                             </form>
                                       </div>

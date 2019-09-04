@@ -18,34 +18,41 @@ contract Request is DonorRegister{
   
   // constructor() public {
   // }
-  struct acpReq{
+  struct bloodReq{
         //address requestee;
         uint donorNos;
         string location;
-        //uint age;
         bGrp reqGrp;
-        //bool status;
+        bool reqStatus;
     }
-    address donors;
-    enum status {Donated,Available}
-    mapping(address=>acpReq)acceptor;
-    status donorStatus;
+    // address donors;
+    mapping(address=>bloodReq)public request;
     function setReq(address _requestee,uint _donorNos,string memory _location,bGrp _reqGrp)public{
-       acceptor[_requestee] = acpReq(_donorNos,_location,_reqGrp);
+       request[_requestee] = bloodReq(_donorNos,_location,_reqGrp,false);
    }
    
-   function getReq(address requestEE)public view returns(uint _donorNos,string memory _location,bGrp _reqGrp){
-       _donorNos = acceptor[requestEE].donorNos;
-       _location = acceptor[requestEE].location;
-       _reqGrp = acceptor[requestEE].reqGrp;
+   function getReq(address requestEE)public view returns(uint _donorNos,string memory _location,bGrp _reqGrp,bool _reqStatus){
+       _donorNos = request[requestEE].donorNos;
+       _location = request[requestEE].location;
+       _reqGrp = request[requestEE].reqGrp;
+       _reqStatus = request[requestEE].reqStatus;
    }
-   event counter(status);
+   event requestAccpt(address,address);
    //Accepting request function to accept
-   function acceptReq(address accept)public{
-       donors = accept;
-        getSample(donors);
-        donorStatus = status.Donated;
-        emit counter(donorStatus);
+   function acceptReq(address acceptor,address requestee)public{
+       assert(request[requestee].reqStatus == false);
+       assert(donor[acceptor].donorStatus == false);
+       assert(request[requestee].reqGrp == donor[acceptor].grp);
+       request[requestee].reqStatus = true;
+       donor[acceptor].donorStatus = true;
+       emit requestAccpt(acceptor,requestee);
+       transfer(acceptor, 5);
+    //    donor[acceptor].
+
+    //    donors = accept;
+        // getSample(donors);
+        // donorStatus = status.Donated;
+        // emit counter(donorStatus);
 
    }
 }
