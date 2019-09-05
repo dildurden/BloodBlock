@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var swal = require('sweetalert');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: '' });
@@ -29,12 +29,14 @@ router.post('/setDonor',function(req,res,next){
   }
   else
     mCondition = false; //med condition set to false 
-  // owner = web3.eth.get
   console.log("ender Address ",account)
   console.log("Counter:",medCounter)
   console.log("Conditions:",mCondition);
   Contractinstance.methods.setDonor(data.donorno,data.donorName,data.age,data.location,data.mobno,mCondition,data.gender,data.bloodGroup).send({from:account,gas:600000}).then((txn)=>{
-    res.send(txn);
+      
+      swal('Mesage').then((tx)=>{
+        res.redirect('/');
+      })
    })
   
 });
@@ -47,7 +49,7 @@ router.get('/getSample',(req,res,next)=>{
 })
 router.post("/setRequest",(req,res)=>{
   let data = req.body;
-  Contractinstance.methods.setReq(data.bankAddr,data.amount,data.reqlocation,data.reqbloodGroup).send({from:account,gas:600000}).then((txn)=>{
+  Contractinstance.methods.setReq(data.bankAddr,data.reqlocation,data.reqbloodGroup).send({from:account,gas:600000}).then((txn)=>{
     res.send(txn);
   })
 })
@@ -56,7 +58,7 @@ router.post("/acceptRequest",(req,res)=>{
   let data = req.body;
   Contractinstance.methods.acceptReq(data.donoraddr,data.reqaddr).send({from:account,gas:6000000}).then((txn)=>{
     res.send(txn);
+    console.log(txn);
   })
-  // Contractinstance.methods.transfer(data.donoraddr,5).send({from:account,gas:6000000}).then(())
 })
 module.exports = router;
