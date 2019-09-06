@@ -1,11 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var swal = require('sweetalert');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: '' });
+  res.render('index', { title: 'Blood Donor Chain' });
 });
-router.post('/setDonor',function(req,res,next){
+router.post('/setDonor',async function(req,res,next){
   // res.send(req.body); Testing post
   let data = req.body;
  
@@ -32,33 +31,52 @@ router.post('/setDonor',function(req,res,next){
   console.log("ender Address ",account)
   console.log("Counter:",medCounter)
   console.log("Conditions:",mCondition);
-  Contractinstance.methods.setDonor(data.donorno,data.donorName,data.age,data.location,data.mobno,mCondition,data.gender,data.bloodGroup).send({from:account,gas:600000}).then((txn)=>{
-      
-      swal('Mesage').then((tx)=>{
-        res.redirect('/');
+  try{
+      await Contractinstance.methods.setDonor(data.donorno,data.donorName,data.age,data.location,data.mobno,mCondition,data.gender,data.bloodGroup).send({from:account,gas:600000}).then((txn)=>{
+        res.send("Donor "+ data.donorno +"has been registered");
       })
-   })
+    }catch(err){
+      await res.send(err.message);
+      console.log(err.message);
+    }
   
 });
 
-router.get('/getSample',(req,res,next)=>{
+router.get('/getSample',async(req,res,next)=>{
   let data =req.query;
-  Contractinstance.methods.getSample(data.search).call({from:account}).then((txn)=>{
-    res.render("getSample",{result:txn})
-  })
+  try {
+        await Contractinstance.methods.getSample(data.search).call({from:account}).then((txn)=>{
+          res.render("getSample",{result:txn})
+        })
+  } catch (err) {
+    await res.send(err.message);
+    console.log(err.message);
+  }
 })
-router.post("/setRequest",(req,res)=>{
+router.post("/setRequest",async (req,res)=>{
   let data = req.body;
-  Contractinstance.methods.setReq(data.bankAddr,data.reqlocation,data.reqbloodGroup).send({from:account,gas:600000}).then((txn)=>{
-    res.send(txn);
-  })
+  try {
+        await Contractinstance.methods.setReq(data.bankAddr,data.reqlocation,data.reqbloodGroup).send({from:account,gas:600000}).then((txn)=>{
+              res.send("Request "+ data.bankAddr +"has been registered");
+        })
+  } catch (err) {
+    await res.send(err.message);
+    console.log(err.message);
+  }
+  
 })
 ///Route for Accepting Request
-router.post("/acceptRequest",(req,res)=>{
+router.post("/acceptRequest",async (req,res)=>{
   let data = req.body;
-  Contractinstance.methods.acceptReq(data.donoraddr,data.reqaddr).send({from:account,gas:6000000}).then((txn)=>{
-    res.send(txn);
-    console.log(txn);
-  })
+  try {
+        Contractinstance.methods.getSample(data.donoraddr).call({from:account}).then
+        await Contractinstance.methods.acceptReq(data.donoraddr,data.reqaddr).send({from:account,gas:6000000}).then((txn)=>{
+                 res.send("Request "+ data.reqaddr +"has been accepted by Donor " + data.donoraddr);
+                 console.log(txn);
+        })
+  } catch (err) {
+    await res.send(err.message);
+    console.log(err.message);
+  }  
 })
 module.exports = router;

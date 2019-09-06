@@ -1,6 +1,66 @@
 # CED-B3-G08
 
 
+
+
+# BloodBlock - A Blood Donor Chain
+
+A blockchain-based Blood Donation Management System
+
+
+### System requirements:
+
+1. Operating system: Ubuntu 16.04
+2. System RAM: 4 GB or above (recommended 8 GB)
+3. Free System storage: 4 GB on /home
+
+## Installation Prerequisites:
+
+1. Ensure that NodeJS is installed in the system. For more information about NodeJS, go to https://nodejs.org. To check if installed, open a terminal window:
+```
+node -v
+```
+
+2. If NodeJS is not installed, go to https://nodejs.org and download the compatible version based on system OS, or in a terminal window:
+```
+sudo apt-get install -y nodejs
+```
+
+3. Ensure that Truffle is installed. Truffle Suite helps to develop Dapps easily. For more information, go to https://truffleframework.com/. To check if installed, in terminal window:
+```
+truffle version
+```
+4. If Truffle is not installed, in terminal window:
+``` 
+npm install -g truffle
+```
+
+5. Ensure that geth is installed. Geth is the official Golang implementation of the Ethereum protocol. To check, in a terminal window:
+```
+geth version
+```
+
+6. To install geth, in a terminal window:
+```
+sudo apt-get install software-properties-common
+sudo add-apt-repository -y ppa:ethereum/ethereum
+sudo apt-get update
+sudo apt-get install ethereum
+```
+
+## Setting up the Dapp
+
+1. Clone the Dapp repository from gitlab. Open a terminal window and paste the following command
+``` 
+git clone https://gitlab.com/ced_b3_projects/ced-b3-g08
+
+```
+2. Open the project folder blockchainData and open a terminal from the folder to run geth.You can notice a shellscript file chain.sh, run the file.
+```
+chmod +x privatechain.sh
+./privatechain.sh
+```
+3.
 ## Add your Git username and set your email
 
 On your shell, type the following command to add your username:

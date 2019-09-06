@@ -1,95 +1,94 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Blood Donor Chain</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  </head>
-  <body>
-    <h1 align="center">Bloodblock</h1>
-    <div class="jumbotron-fluid">
-            <div class="container" >
-                    
+<title><%=title%></title>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<h1 align="center">Bloodblock</h1>
+<div class="jumbotron-fluid">
+    <div class="container" >                    
                 <!-- ---------------------------------------------------------- -->
-                <div class="row">
-                        <div class="col"><!-- Sample Registration Form -->
-                            <form action="setDonor" method="POST" >
-                            <input class="form-control" type="text" name ="donorno" placeholder="Donor ID No: "/><br><br>
-                            <input class="form-control" type="text" name ="donorName" placeholder="Name "/><br><br>
-                            <input class="form-control" type="text" name ="age" placeholder="Age " id="age"/><br><br>
-                            <div class="form-inline">
-                            <input class="form-control" type="radio" name="gender" value="0"/>Male
-                            <input class="form-control" type="radio" name="gender" value="1"/>Female
-                            <input class="form-control" type="radio" name="gender" value="2"/>Other
-                              </div>
-                            <br><br>
-                            Blood Group: <select name="bloodGroup" >
-                              <option value="0">A+ve</option>
-                              <option value="1">A-ve</option>
-                              <option value="2">B+ve</option>
-                              <option value="3">B-ve</option>
-                              <option value="4">O+ve</option>
-                              <option value="5">O-ve</option>
-                              <option value="6">AB+ve</option>
-                              <option value="7">AB-ve</option>
-                            </select>
-                            <!-- <br><br> -->
-                            <label for="location">Location</label>
-                            <input class="form-control" type="text" name="location" placeholder="Location"/>
-                            <!-- <br><br> -->
-                            <label for="mobno">Mobile</label>
-                            <input class="form-control" type="tel" name="mobno" placeholder="Mobile"/>
-                            <!-- <br><br> -->
-                            <div class="">
-                            <p> Medical Conditions </p>
-                            <div>
-                            <input type="checkbox" name="mCondition1" value="true" />Conditon1 <span>
-                            <input type="checkbox" name="mCondition2" value="true"/>Conditon2 <span>
-                            <input type="checkbox" name="mCondition3" value="true"/>Conditon3 <span>
-                            <input type="checkbox" name="mCondition4" value="true"/>Conditon4 <span>
-                            <input type="checkbox" name="mCondition5" value="true"/>Conditon5 <br>
-                            </div>
-                            </div>
-                            <button class="btn btn-primary" type="submit" value="submit">Submit</button>     
-                            </form>
-                        </div>
-                        
-                        <div class="col">
-                            <div>
-                                    <form action="getSample" method="GET">
-                                            <!-- <label for="search">Search</label> -->
-                                            <input class="form-control" type="text" name ="search" placeholder="sample account" /><br>
-                                            <button class="btn btn-primary" type="submit" value="submit" >Search</button>
-                                            </form>
-                            </div><br>
-                            <div>
-                                <form action="setRequest" method="POST">
-                                        <input class="form-control" type="text" name = "bankAddr" placeholder="Blood Bank ID"/>
-                                        <input class="form-control" type="text" name ="reqlocation" placeholder="Location"/>
-                                        Blood Group:<select name="reqbloodGroup" >
-                                          <option value="0">A+ve</option>
-                                          <option value="1">A-ve</option>
-                                          <option value="2">B+ve</option>
-                                          <option value="3">B-ve</option>
-                                          <option value="4">O+ve</option>
-                                          <option value="5">O-ve</option>
-                                          <option value="6">AB+ve</option>
-                                          <option value="7">AB-ve</option>
-                                        </select><br>
-                                        <button class="btn btn-primary" type="submit" value="submit">Submit</button>
-                                      </form>
-                                    </div>
-                                      <br>
-                                      <div>
-                                            <h5>Accept Request</h5>
-                                            <form action="acceptRequest" method="POST">
-                                              <input class="form-control" type="text" name="donoraddr" placeholder="Donor Address"><br>
-                                              <input class="form-control" type="text" name="reqaddr" placeholder="Request Address"><br>
-                                              <button class="btn btn-primary" type="submit" value="submit">Submit</button>
-                                            </form>
-                                      </div>
-                        </div>
+        <div class="row" >
+            <div class="col-md-6"><!-- Sample Registration Form -->
+                <h5>Donor Registration</h5>
+                <div>
+                <form action="setDonor" method="POST" id="donorForm" target="iframe_a">
+                   <input class="form-control" type="text" name ="donorno" placeholder="Donor Address: "/><br>
+                   <input class="form-control" type="text" name ="donorName" placeholder="Name"/><br>
+                   <input class="form-control" type="text" name ="age" placeholder="Age " id="age"/><br>
+                   <div class="form-inline">
+                     <input class="form-control" type="radio" name="gender" value="0"/>Male
+                     <input class="form-control" type="radio" name="gender" value="1"/>Female
+                     <input class="form-control" type="radio" name="gender" value="2"/>Other
+                   </div><br>
+                   Blood Group: <select name="bloodGroup" >
+                     <option value="0">A+ve</option>
+                     <option value="1">A-ve</option>
+                     <option value="2">B+ve</option>
+                     <option value="3">B-ve</option>
+                     <option value="4">O+ve</option>
+                     <option value="5">O-ve</option>
+                     <option value="6">AB+ve</option>
+                     <option value="7">AB-ve</option>
+                    </select>
+                    <br><br>
+                    <input class="form-control" type="text" name="location" placeholder="Location"/>
+                    <br>
+                    <input class="form-control" type="tel" name="mobno" placeholder="Mobile"/>
+                    <br>
+                    <div class="">
+                      <p> Medical Conditions </p>
+                      <div>
+                        <input type="checkbox" name="mCondition1" value="true" />Conditon1 <span>
+                        <input type="checkbox" name="mCondition2" value="true"/>Conditon2 <span>
+                        <input type="checkbox" name="mCondition3" value="true"/>Conditon3 <span>
+                        <input type="checkbox" name="mCondition4" value="true"/>Conditon4 <span>
+                        <input type="checkbox" name="mCondition5" value="true"/>Conditon5 <br>
                       </div>
-                
-</body>
-</html>
+                    </div><br>
+                    <button class="btn btn-primary" type="submit" value="submit">Submit</button>     
+                </form></div>
+              </div>
+                        
+              <div class="col-md-6">
+                <div>
+                  <h5>View Donor Details</h5>
+                  <form action="getSample" method="GET" id="getdonorForm" target="iframe_a">
+                    <input class="form-control" type="text" name ="search" placeholder="Donor Address" /><br>
+                    <button class="btn btn-info" type="submit" >Search</button>
+                  </form>
+                </div><br>
+                <div>
+                  <h5>Register Blood Request</h5>
+                  <form action="setRequest" method="POST" id="requestForm" target="iframe_a">
+                   <input class="form-control" type="text" name = "bankAddr" placeholder="Blood Bank/Request Address"/><br>
+                   <input class="form-control" type="text" name ="reqlocation" placeholder="Location"/><br>
+                    Blood Group:<select name="reqbloodGroup" >
+                     <option value="0">A+ve</option>
+                     <option value="1">A-ve</option>
+                     <option value="2">B+ve</option>
+                     <option value="3">B-ve</option>
+                     <option value="4">O+ve</option>
+                     <option value="5">O-ve</option>
+                     <option value="6">AB+ve</option>
+                     <option value="7">AB-ve</option>
+                    </select><br>
+                   <button class="btn btn-primary" type="submit" value="submit">Submit</button>
+                  </form>
+                </div>
+                <br>
+                <div>
+                 <h5>Accept Request</h5>
+                 <form action="acceptRequest" method="POST" id="acceptForm" target="iframe_a">
+                   <input class="form-control" type="text" name="donoraddr" placeholder="Donor Address"><br>
+                   <input class="form-control" type="text" name="reqaddr" placeholder="Request Address"><br>
+                   <button class="btn btn-primary" type="submit" value="submit" >Submit</button>
+                 </form>
+                </div>
+             </div>
+            <!-- Iframe to handle responses -->
+            <div class="container">
+              <div class="embed-responsive embed-responsive-16by9 ">
+              <iframe class="embed-responsive-item " height="120px" width="100%" name="iframe_a"></iframe>
+              </div>
+            </div>      
+         </div>                
+       </div>
+    </div>

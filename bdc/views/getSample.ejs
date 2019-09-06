@@ -1,10 +1,13 @@
-<table>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<table class="table table-hover">
     <tr>
-        <td>Age</td>
+        <th>Age</th>
         <td><%= result._age %></td>
     </tr>
     <tr>
-        <td>Gender</td>
+        <th>Gender</th>
         <td>
         <% if (result._donGen == 0){%>
             Male            
@@ -17,11 +20,11 @@
         </td>
     </tr>
     <tr>
-        <td>Place</td>
+        <th>Place</th>
         <td><%=result._place %></td>
     </tr>
     <tr>
-        <td>Blood Group</td>
+        <th>Blood Group</th>
         <td>
             <% switch(result._grp) {
              case '0':%>
@@ -51,7 +54,7 @@
         </td>
     </tr>
     <tr>
-        <td>Medical Conditions</td>
+        <th>Medical Conditions</th>
         <td>
             <%if (result._medCond == true){%>
                 Yes
@@ -61,7 +64,7 @@
         </td>
     </tr>
     <tr>
-        <td>Availability/Status</td>
+        <th>Availability/Status</th>
         <td>
             <%if (result._donorStatus == true) {%>
                 Not Available
@@ -71,7 +74,7 @@
         </td>
     </tr>
     <tr>
-        <td>Token</td>
+        <th>Token</th>
         <td>
             <%= result.token %>
         </td>

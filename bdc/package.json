@@ -16,6 +16,7 @@
     "morgan": "~1.9.1",
     "sweetalert": "^2.1.2",
     "truffle": "^5.0.32",
+    "truffle-hdwallet-provider": "^1.0.17",
     "web3": "^1.2.1"
   }
 }

@@ -1,0 +1,14 @@
+miner.start()
+eth.accounts
+miner.stop()
+eth.accounts
+eth.getBalance[eth.accounts(0)]
+eth.getBalance(eth.accounts[0])
+eth.getTransaction
+eth.getTransaction()
+eth.getTransaction(0x850b086dfe651702a09c349458ed6ef318b334c8b867587f1fad7c60f3848cab)
+eth.getTransaction("0x850b086dfe651702a09c349458ed6ef318b334c8b867587f1fad7c60f3848cab")
+eth.getTransaction("0x2532027e51f7243f53e83c687dce876633cfee659a0b00c43fb95bb2c109a516")
+eth.accounts
+miner.start()
+miner.stop()

@@ -7,14 +7,13 @@ var Web3 = require('web3');
 const ejsLint = require('ejs-lint');
 ejsLint.lint();
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 /** 
  * Deployed Contract request and usng comtract instance of request to call methods of the register contract
 */
 var DonorRegisterJSON = require(path.join(__dirname,"build/contracts/Request.json"));//Donor Contract Variable
 web3 = new Web3('http://localhost:8545');//Connecting to Blockchain rpc endpoint
 //Initialize the account and contract instances
-  account = "0xc22e2df070d7552dfe27b976efeb8bc6e76b077a";//account Address
+  account = "0x1ac013d849c86f23f2e95eb4e68cbc20bf97dc93";//account Address
   contractaddress = DonorRegisterJSON.networks['4002'].address;//Contract Address
   //Initialize the contract Abi
   contractabi = DonorRegisterJSON.abi;
@@ -36,7 +35,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
