@@ -33,7 +33,7 @@ router.post('/setDonor',async function(req,res,next){
   console.log("Conditions:",mCondition);
   try{
       await Contractinstance.methods.setDonor(data.donorno,data.donorName,data.age,data.location,data.mobno,mCondition,data.gender,data.bloodGroup).send({from:account,gas:600000}).then((txn)=>{
-        res.send("Donor "+ data.donorno +"has been registered");
+        res.send("Donor "+ data.donorno +" has been registered");
       })
     }catch(err){
       await res.send(err.message);
@@ -57,7 +57,7 @@ router.post("/setRequest",async (req,res)=>{
   let data = req.body;
   try {
         await Contractinstance.methods.setReq(data.bankAddr,data.reqlocation,data.reqbloodGroup).send({from:account,gas:600000}).then((txn)=>{
-              res.send("Request "+ data.bankAddr +"has been registered");
+              res.send("Request "+ data.bankAddr +" has been registered");
         })
   } catch (err) {
     await res.send(err.message);
@@ -69,10 +69,20 @@ router.post("/setRequest",async (req,res)=>{
 router.post("/acceptRequest",async (req,res)=>{
   let data = req.body;
   try {
-        Contractinstance.methods.getSample(data.donoraddr).call({from:account}).then
         await Contractinstance.methods.acceptReq(data.donoraddr,data.reqaddr).send({from:account,gas:6000000}).then((txn)=>{
-                 res.send("Request "+ data.reqaddr +"has been accepted by Donor " + data.donoraddr);
-                 console.log(txn);
+              Contractinstance.methods.getSample(data.donoraddr).call({from:account}).then((donortx)=>{
+                Contractinstance.methods.getReq(data.reqaddr).call({from:account}).then((reqtxn)=>{
+                  //to check the locations are matching or not as comparing string datatype not possible in solidity
+                  if(donortx._place == reqtxn._location){
+                    res.send("Request "+ data.reqaddr +" has been accepted by Donor " + data.donoraddr);
+                    console.log(txn);
+                  }
+                  else{
+                    res.send("Locations not matching");
+                  }
+                })
+              })
+                 
         })
   } catch (err) {
     await res.send(err.message);
