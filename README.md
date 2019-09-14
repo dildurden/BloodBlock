@@ -69,7 +69,7 @@ truffle migrate --reset
 ```
 npm start
 ```
-5. Open webbrowser and go to "http://http://localhost:3000" to launch the Dapp
+5. Open webbrowser and go to "http://localhost:3000" to launch the Dapp
 
 6. If you want to run the dapp in Dev mode kill all existing terminals and run the file devchain.sh in folder bdc.
 ```
