@@ -5,7 +5,8 @@
 
 # BloodBlock - A Blood Donor Chain
 
-A blockchain-based Blood Donation Management System
+A blockchain-based Blood Donation Management System ; The dApp is created to make the blood donation transparent and decentralised. It helps us to know
+whether the blood donated reaches the needed and also donate blood as per request so that there is no blood wastage and spoilage.
 
 
 ### System requirements:
@@ -55,63 +56,32 @@ sudo apt-get install ethereum
 git clone https://gitlab.com/ced_b3_projects/ced-b3-g08
 
 ```
-2. Open the project folder blockchainData and open a terminal from the folder to run geth.You can notice a shellscript file chain.sh, run the file.
+2. Open the project folder privatechain and open a terminal from the folder to run geth on a private network.You can notice a shellscript file privatechain.sh, run the file.
 ```
 chmod +x privatechain.sh
 ./privatechain.sh
 ```
-3.
-## Add your Git username and set your email
+3. Open the project folder bdc and open a terminal from the folder ,to migrate the smart contract.
+```
+truffle migrate --reset
+```
+4. To run the node server ,on the terminal execute
+```
+npm start
+```
+5. Open webbrowser and go to "http://http://localhost:3000" to launch the Dapp
 
-On your shell, type the following command to add your username:
+6. If you want to run the dapp in Dev mode kill all existing terminals and run the file devchain.sh in folder bdc.
 ```
-git config --global user.name "YOUR_USERNAME"
+./devchain.sh
 ```
-To set your email address, type the following command:
+    Repeat the steps 3,4,5 to continue with the Dapp
+7. In order to enter the addresses required in the Dapp create new accounts from the geth javascript console using command <geth attach> and use
 ```
-git config --global user.email "your_email_address@example.com"
+personal.newAccount(); //Copy the account address and pass as argument to the next function to unlock it
+personal.unlockAccount("Your Account address")
 ```
-
-To verify that you entered your username and email correctly, type:
+8. If you want to run the Dapp in multiple node scenario then use the commands in the multinodecommands.txt in the privatechain folder.
+9. To run the Dapp in Ropsten test network use
 ```
-git config --global user.name
-git config --global user.email
-```
-
-
-## Basic Git commands
-
-### Clone a repository
-To start working locally on an existing remote repository, clone it with the command git clone <repository path>. By cloning a repository, you’ll download a copy of its files into your local computer, preserving the Git connection with the remote repository.
-
-You can find both paths (HTTPS and SSH) by navigating to your project’s landing page and clicking Clone. GitLab will prompt you with both paths, from which you can copy and paste in your command line.
-
-To get started, open a terminal window in the directory you wish to clone the repository files into, and run one of the following commands.
-```
-git clone https://gitlab.com/ced_b3_projects/ced-b3-g08
-
-```
-This command will download a copy of the files in a folder named after the project’s name.
-
-You can then navigate to the directory and start working on it locally.
-
-### Go to the master branch to pull the latest changes from there
-```
-git checkout master
-```
-### Download the latest changes in the project
-This is for you to work on an up-to-date copy (it is important to do this every time you start working on a project), while you set up tracking branches. You pull from remote repositories to get all the changes made by users since the last time you cloned or pulled the project. Later, you can push your local commits to the remote repositories.
-```
-git pull
-```
-### Add and commit local changes
-You’ll see your local changes in red when you type git status. These changes may be new, modified, or deleted files/folders. Use git add to stage a local file/folder for committing. Then use git commit to commit the staged files:
-```
-git add FILE OR FOLDER
-git commit -m "COMMENT TO DESCRIBE THE INTENTION OF THE COMMIT"
-```
-### Send changes to GitLab.com
-To push all local commits to the remote repository:
-```
-git push
 ```
