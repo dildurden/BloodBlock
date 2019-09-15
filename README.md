@@ -84,4 +84,5 @@ personal.unlockAccount("Your Account address")
 8. If you want to run the Dapp in multiple node scenario then use the commands in the multinodecommands.txt in the privatechain folder.
 9. To run the Dapp in Ropsten test network use
 ```
+truffle deploy --network ropsten
 ```
