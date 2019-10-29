@@ -1,6 +1,3 @@
-# CED-B3-G08
-
-
 
 
 # BloodBlock - A Blood Donor Chain
